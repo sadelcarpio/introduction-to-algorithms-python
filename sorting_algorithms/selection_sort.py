@@ -1,20 +1,20 @@
 class SelectionSort:
 
     @staticmethod
-    def sort(A: list):
-        n = len(A)
+    def sort(a: list):
+        n = len(a)
         for i in range(n - 1):
-            minimum = A[i]
+            minimum = a[i]
             index = i
             for j in range(i + 1, n):
-                if A[j] < minimum:
-                    minimum = A[j]
+                if a[j] < minimum:
+                    minimum = a[j]
                     index = j
-            A[index] = A[i]
-            A[i] = minimum
-        return A
+            a[index] = a[i]
+            a[i] = minimum
 
 
 if __name__ == "__main__":
-    arr = SelectionSort().sort(A=[5, 2, 4, 6, 1, 3])
+    arr = [5, 2, 4, 6, 1, 3]
+    SelectionSort().sort(a=arr)
     print(arr)
