@@ -12,7 +12,7 @@ class InsertionSort:
 
     @staticmethod
     def recursive_sort(a: list, n: int):
-        if n == 0:
+        if n == 1:
             return
         InsertionSort.recursive_sort(a, n - 1)
         key = a[n - 1]
