@@ -1,13 +1,12 @@
 def binary_search(a: list, val: int, p: int, r: int):
+    q = int((p + r) / 2)
     if p >= r:
         return None
-    q = int((p + r) / 2)
     if val == a[q]:
         return q
     if val < a[q]:
         return binary_search(a, val, p, q)
-    else:
-        return binary_search(a, val, q + 1, r)
+    return binary_search(a, val, q + 1, r)
 
 
 if __name__ == '__main__':
