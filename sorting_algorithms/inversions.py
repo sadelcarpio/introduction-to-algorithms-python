@@ -1,12 +1,12 @@
 class NumInversions:
 
     @staticmethod
-    def sort(a: list, p: int, r: int):
+    def count_inversions(a: list, p: int, r: int):
         num_inversions = 0
         if p < r:
             q = int((p + r) / 2)
-            num_inversions += NumInversions.sort(a, p, q)
-            num_inversions += NumInversions.sort(a, q + 1, r)
+            num_inversions += NumInversions.count_inversions(a, p, q)
+            num_inversions += NumInversions.count_inversions(a, q + 1, r)
             num_inversions += NumInversions.merge(a, p, q, r)
         # base case
         return num_inversions  # you need to return something, by default Python returns None
@@ -41,5 +41,5 @@ class NumInversions:
 
 if __name__ == '__main__':
     arr = [6, 5, 9, 0, 1, 7]
-    num_inversions = NumInversions.sort(a=arr, p=0, r=len(arr) - 1)
+    num_inversions = NumInversions.count_inversions(a=arr, p=0, r=len(arr) - 1)
     print(num_inversions)
