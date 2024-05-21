@@ -35,5 +35,5 @@ class MergeSort:
 
 if __name__ == '__main__':
     arr = [12, 3, 7, 9, 14, 6, 11, 2]
-    MergeSort().sort(a=arr, p=0, r=7)
+    MergeSort.sort(a=arr, p=0, r=len(arr) - 1)
     print(arr)

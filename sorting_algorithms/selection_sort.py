@@ -16,5 +16,5 @@ class SelectionSort:
 
 if __name__ == "__main__":
     arr = [5, 2, 4, 6, 1, 3]
-    SelectionSort().sort(a=arr)
+    SelectionSort.sort(a=arr)
     print(arr)

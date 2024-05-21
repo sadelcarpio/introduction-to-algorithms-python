@@ -46,5 +46,5 @@ class InsertionSort:
 
 if __name__ == "__main__":
     arr = [5, 2, 4, 6, 1, 3]
-    InsertionSort().sort_with_binary_search(a=arr, n=len(arr))
+    InsertionSort.sort_with_binary_search(a=arr, n=len(arr))
     print(arr)

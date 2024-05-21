@@ -10,5 +10,5 @@ class BubbleSort:
 
 if __name__ == '__main__':
     arr = [5, 2, 4, 6, 1, 3]
-    BubbleSort().sort(a=arr, n=len(arr))
+    BubbleSort.sort(a=arr, n=len(arr))
     print(arr)
