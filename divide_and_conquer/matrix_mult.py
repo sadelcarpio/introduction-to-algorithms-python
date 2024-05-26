@@ -66,35 +66,35 @@ class MatMul:
         p[5] = MatMul._strassen_multiply(s, s, new_n, new_n, 2 * new_n, new_n, new_n)
         p[6] = MatMul._strassen_multiply(s, s, 3 * new_n, new_n, 4 * new_n, new_n, new_n)
 
-        MatMul.c11(p, c, 0, 0, new_n)
-        MatMul.c12(p, c, new_n, 0, new_n)
-        MatMul.c21(p, c, 0, new_n, new_n)
-        MatMul.c22(p, c, new_n, new_n, new_n)
+        MatMul.c11(p, c, new_n)
+        MatMul.c12(p, c, new_n)
+        MatMul.c21(p, c, new_n)
+        MatMul.c22(p, c, new_n)
         return c
 
     @staticmethod
-    def c11(p: list, c: list[list], c_col: int, c_row: int, n: int):
+    def c11(p: list, c: list[list], n: int):
         for i in range(n):
             for j in range(n):
-                c[c_row + i][c_col + j] += p[4][i][j] + p[3][i][j] - p[1][i][j] + p[5][i][j]
+                c[i][j] += p[4][i][j] + p[3][i][j] - p[1][i][j] + p[5][i][j]
 
     @staticmethod
-    def c12(p: list, c: list[list], c_col: int, c_row: int, n: int):
+    def c12(p: list, c: list[list], n: int):
         for i in range(n):
             for j in range(n):
-                c[c_row + i][c_col + j] += p[0][i][j] + p[1][i][j]
+                c[i][j + n] += p[0][i][j] + p[1][i][j]
 
     @staticmethod
-    def c21(p: list, c: list[list], c_col: int, c_row: int, n: int):
+    def c21(p: list, c: list[list], n: int):
         for i in range(n):
             for j in range(n):
-                c[c_row + i][c_col + j] += p[2][i][j] + p[3][i][j]
+                c[i + n][j] += p[2][i][j] + p[3][i][j]
 
     @staticmethod
-    def c22(p: list, c: list[list], c_col: int, c_row: int, n: int):
+    def c22(p: list, c: list[list], n: int):
         for i in range(n):
             for j in range(n):
-                c[c_row + i][c_col + j] += p[4][i][j] + p[0][i][j] - p[2][i][j] - p[6][i][j]
+                c[i + n][j + n] += p[4][i][j] + p[0][i][j] - p[2][i][j] - p[6][i][j]
 
     @staticmethod
     def matrix_sum(a: list[list], b: list[list], s: list[list], a_col: int, a_row: int, b_col: int, b_row: int,
