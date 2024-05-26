@@ -22,13 +22,13 @@ class MatMul:
             c[a_row][b_col] += a[a_row][a_col] * b[b_row][b_col]
             return
         new_n = n // 2
-        MatMul._recursive_multiply(a, b, c, a_col, a_row, b_col, b_row, new_n),
-        MatMul._recursive_multiply(a, b, c, a_col + new_n, a_row, b_col, b_row + new_n, new_n),
-        MatMul._recursive_multiply(a, b, c, a_col, a_row, b_col + new_n, b_row, new_n),
-        MatMul._recursive_multiply(a, b, c, a_col + new_n, a_row, b_col + new_n, b_row + new_n, new_n),
-        MatMul._recursive_multiply(a, b, c, a_col, a_row + new_n, b_col, b_row, new_n),
+        MatMul._recursive_multiply(a, b, c, a_col, a_row, b_col, b_row, new_n)
+        MatMul._recursive_multiply(a, b, c, a_col + new_n, a_row, b_col, b_row + new_n, new_n)
+        MatMul._recursive_multiply(a, b, c, a_col, a_row, b_col + new_n, b_row, new_n)
+        MatMul._recursive_multiply(a, b, c, a_col + new_n, a_row, b_col + new_n, b_row + new_n, new_n)
+        MatMul._recursive_multiply(a, b, c, a_col, a_row + new_n, b_col, b_row, new_n)
         MatMul._recursive_multiply(a, b, c, a_col + new_n, a_row + new_n, b_col, b_row + new_n, new_n)
-        MatMul._recursive_multiply(a, b, c, a_col, a_row + new_n, b_col + new_n, b_row, new_n),
+        MatMul._recursive_multiply(a, b, c, a_col, a_row + new_n, b_col + new_n, b_row, new_n)
         MatMul._recursive_multiply(a, b, c, a_col + new_n, a_row + new_n, b_col + new_n, b_row + new_n, new_n)
 
     @staticmethod
